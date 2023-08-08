@@ -1,12 +1,12 @@
 # Refacer: One-Click Deepfake Multi-Face Swap Tool
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xaviviro/refacer/blob/master/notebooks/Refacer_colab.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/zona-iptv/refacer/blob/master/notebooks/Refacer_colab.ipynb)
 
 👉 [Watch demo on Youtube](https://youtu.be/mXk1Ox7B244)
 
 Refacer, a simple tool that allows you to create deepfakes with multiple faces with just one click! This project was inspired by [Roop](https://github.com/s0md3v/roop) and is powered by the excellent [Insightface](https://github.com/deepinsight/insightface). Refacer requires no training - just one photo and you're ready to go.
 
-:warning: Please, before using the code from this repository, make sure to read the [disclaimer](https://github.com/xaviviro/refacer/tree/main#disclaimer).
+:warning: Please, before using the code from this repository, make sure to read the [disclaimer](https://github.com/zona-iptv/refacer/tree/main#disclaimer).
 
 ## Demonstration
 
@@ -44,7 +44,7 @@ Follow these steps to install Refacer:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/xaviviro/refacer.git
+    git clone https://github.com/zona-iptv/refacer.git
     cd refacer
     ```
 
