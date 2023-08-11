@@ -1,6 +1,6 @@
 # Refacer: One-Click Deepfake Multi-Face Swap Tool
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/zona-iptv/refacer/blob/master/notebooks/Refacer_colab.ipynb target="_blank")
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/zona-iptv/refacer/blob/master/notebooks/Refacer_colab.ipynb)
 
 👉 [Watch demo on Youtube](https://youtu.be/mXk1Ox7B244)
 
