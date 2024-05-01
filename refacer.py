@@ -95,25 +95,37 @@ class Refacer:
         self.face_swapper = INSwapper(model_path,sess_swap)
 
     def prepare_faces(self, faces):
-        self.replacement_faces=[]
+        self.replacement_faces = []
         for face in faces:
-            #image1 = cv2.imread(face.origin)
+            # Load image data from file path
+            origin_img = cv2.imread(face['origin'])
+            destination_img = cv2.imread(face['destination'])
+
+            # Error handling for image loading
+            if origin_img is None:
+                raise Exception(f"Failed to load origin image: {face['origin']}")
+            if destination_img is None:
+                raise Exception(f"Failed to load destination image: {face['destination']}")
+
+            # Check if 'origin' is provided 
             if "origin" in face:
                 face_threshold = face['threshold']
-                bboxes1, kpss1 = self.face_detector.autodetect(face['origin'], max_num=1)  
-                if len(kpss1)<1:
+                bboxes1, kpss1 = self.face_detector.autodetect(origin_img, max_num=1)  
+                if len(kpss1) < 1:
                     raise Exception('No face detected on "Face to replace" image')
-                feat_original = self.rec_app.get(face['origin'], kpss1[0])
+                feat_original = self.rec_app.get(origin_img, kpss1[0])
             else:
                 face_threshold = 0
                 self.first_face = True
                 feat_original = None
                 print('No origin image: First face change')
-            #image2 = cv2.imread(face.destination)
-            _faces = self.__get_faces(face['destination'],max_num=1)
-            if len(_faces)<1:
+
+            # Detect faces in destination image
+            _faces = self.__get_faces(destination_img, max_num=1)
+            if len(_faces) < 1:
                 raise Exception('No face detected on "Destination face" image')
-            self.replacement_faces.append((feat_original,_faces[0],face_threshold))
+
+            self.replacement_faces.append((feat_original, _faces[0], face_threshold))
 
     def __convert_video(self,video_path,output_video_path):
         if self.video_has_audio:
@@ -182,7 +194,7 @@ class Refacer:
             for result in results:
                 output.write(result)
 
-    def reface(self, video_path, faces):
+    def reface(self, video_path, faces, output=None):
         self.__check_video_has_audio(video_path)
         output_video_path = os.path.join('out',Path(video_path).name)
         self.prepare_faces(faces)
